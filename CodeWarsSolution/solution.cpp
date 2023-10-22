@@ -7,10 +7,10 @@ int material(const std::vector<int>& spaceship) {
 	int previousHeight = 0;
 	int leftHighest = 0;
 	int leftHighestIndex = -1;
-	// spikes queue should never be empty as it would require checking in a few places
+	// relevant columns dequeue should never be empty as it would require checking in a few places
 	relevantColumns.push_back({ leftHighestIndex, leftHighest });
 
-	// create a deque of columns that are relevant
+	// fill a deque with relevant columns
 	for (int i = 0; i < spaceship.size(); i++) {
 		int height = spaceship[i];
 
@@ -36,7 +36,7 @@ int material(const std::vector<int>& spaceship) {
 	auto end = start;
 	relevantColumns.pop_front();
 
-	// sum all possible liquid blocks between relevant columns
+	// sum all liquid blocks between relevant columns
 	while (!relevantColumns.empty()) {
 		start = end;
 		end = relevantColumns.front();
