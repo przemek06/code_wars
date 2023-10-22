@@ -7,7 +7,7 @@ int material(const std::vector<int>& spaceship) {
 	int previousHeight = 0;
 	int leftHighest = 0;
 	int leftHighestIndex = -1;
-	// relevant columns dequeue should never be empty as it would require checking in a few places
+	// relevant columns deque should never be empty as it would require checking in a few places
 	relevantColumns.push_back({ leftHighestIndex, leftHighest });
 
 	// fill a deque with relevant columns
