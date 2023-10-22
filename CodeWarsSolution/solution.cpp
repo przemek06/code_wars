@@ -5,10 +5,10 @@
 int material(const std::vector<int>& spaceship) {
 	std::deque<std::pair<int, int>> relevantColumns;
 	int previousHeight = 0;
-	int leftHeighest = 0;
-	int leftHeighestIndex = -1;
+	int leftHighest = 0;
+	int leftHighestIndex = -1;
 	// spikes queue should never be empty as it would require checking in a few places
-	relevantColumns.push_back({ leftHeighestIndex, leftHeighest });
+	relevantColumns.push_back({ leftHighestIndex, leftHighest });
 
 	// create a deque of columns that are relevant
 	for (int i = 0; i < spaceship.size(); i++) {
@@ -16,16 +16,16 @@ int material(const std::vector<int>& spaceship) {
 
 		if (height > previousHeight) {
 			auto indexHeightPair = relevantColumns.back();
-			while (indexHeightPair.second <= height && leftHeighestIndex < indexHeightPair.first) {
+			while (height > indexHeightPair.second && leftHighestIndex < indexHeightPair.first) {
 				relevantColumns.pop_back();
 				indexHeightPair = relevantColumns.back();
 			}
 			relevantColumns.push_back({ i, height });
 		}
 
-		if (height >= leftHeighest) {
-			leftHeighest = height;
-			leftHeighestIndex = i;
+		if (height >= leftHighest) {
+			leftHighest = height;
+			leftHighestIndex = i;
 		}
 
 		previousHeight = height;
