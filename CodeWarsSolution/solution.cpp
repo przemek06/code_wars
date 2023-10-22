@@ -1,7 +1,5 @@
 #include "solution.h"
 #include <deque>
-#include <algorithm>
-#include <iostream>
 #include <assert.h>
 
 int material(const std::vector<int>& spaceship) {
