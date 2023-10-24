@@ -44,7 +44,7 @@ int material(const std::vector<int>& spaceship) {
 		int height = std::min(start.second, end.second);
 
 		for (int i = start.first + 1; i < end.first; i++) {
-			result += height - spaceship[i];
+			result += std::max(height - spaceship[i], 0);
 		}
 	}
 
